@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Adicionar Livro
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+  <div class="">
+    <a href="{% url 'adicionar_livro' %}">Adicionar livro</a>
+
+    {% if livros %}
+
+      {% for livro in livros %}
+
+        <div class="">
+          <h3>{{livro.nome}}</h3>
+          <a href="{% url 'atualizar_livro' livro.id %}">Editar</a>
+          <a href="{% url 'deletar_livro' livro.id %}">Deletar</a>
+        </div>
+
+      {% endfor %}
+
+    {% else %}
+
+      <h3>Não há livros</h3>
+
+    {% endif %}
+  </div>
+{% endblock %}

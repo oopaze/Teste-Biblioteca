@@ -1,0 +1,21 @@
+<div class="">
+  <a href="{% url 'criar_autor' %}">Adicionar autor</a>
+
+  {% if autores %}
+
+    {% for autor in autores %}
+
+      <div class="">
+        <h3>{{autor.nome}}</h3>
+        <a href="{% url 'atualizar_autor' autor.id %}">Editar</a>
+        <a href="{% url 'deletar_autor' autor.id %}">Deletar</a>
+      </div>
+
+    {% endfor %}
+
+  {% else %}
+
+    <h3>Não há autores</h3>
+
+  {% endif %}
+</div>

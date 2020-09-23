@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Deletar Livro
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+  <form class="" method="post">
+    {% csrf_token %}
+    <h4> Deseja realmente deletar {{livro.nome}}?</h4>
+    <button type="submit" name="button">Deletar</button>
+    <a href="{% url 'exibir_livros' %}">Cancelar</a>
+  </form>
+{% endblock %}
