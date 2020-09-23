@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Adicionar Livro
+Livros
 {% endblock %}
 
 {% block head %}
@@ -9,6 +9,7 @@ Adicionar Livro
 
 {% block content %}
   <div class="">
+    <a href="{% url 'home' %}">Home</a>
     <a href="{% url 'adicionar_livro' %}">Adicionar livro</a>
 
     {% if livros %}

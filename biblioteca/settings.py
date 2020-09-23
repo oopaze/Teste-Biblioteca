@@ -11,19 +11,19 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+#Deixando SECRET_KEY com default para facilitar os testes, mas sabendo que isso é uma má prática
+SECRET_KEY = config('SECRET_KEY', default='chave_generica')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9hr9tpu+p@)2-2d%deksrg2+lqj@tq$lu$o1pf5$6w#5w&$7l+'
+#'9hr9tpu+p@)2-2d%deksrg2+lqj@tq$lu$o1pf5$6w#5w&$7l+'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#Deixando default para facilitar os testes
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
+#Configurando o crispy forms para usar o bootstrap 4 na estilização
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [

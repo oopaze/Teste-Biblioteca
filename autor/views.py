@@ -8,14 +8,14 @@ def exibir_autor(request):
 
     return render(request, 'autor/index.html', {'autores':autores})
 
-def criar_autor(request):
+def adicionar_autor(request):
     form = AutorForm(request.POST or None)
 
     if form.is_valid():
         form.save()
         return redirect('exibir_autor')
 
-    return render(request, 'autor/criar.html', {'form':form})
+    return render(request, 'autor/adicionar.html', {'form':form})
 
 def atualizar_autor(request, id):
     autor = get_object_or_404(Autor, pk=id)
