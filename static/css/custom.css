@@ -5,7 +5,7 @@ td a{
   width: 100%;
 }
 table{
-  max-width: 100%;
+  max-width: 100% !important;
 }
 .cartao{
   border: 1px solid #d1d1d1;
