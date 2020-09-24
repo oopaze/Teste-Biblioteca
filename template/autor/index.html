@@ -8,27 +8,33 @@ Autores
 {% endblock %}
 
 {% block content %}
-
-  <div class="">
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'adicionar_autor' %}">Adicionar autor</a>
-    {% if autores %}
-
-      {% for autor in autores %}
-
-        <div class="">
-          <h3>{{autor.nome}}</h3>
-          <a href="{% url 'atualizar_autor' autor.id %}">Editar</a>
-          <a href="{% url 'deletar_autor' autor.id %}">Deletar</a>
-        </div>
-
-      {% endfor %}
-
-    {% else %}
-
-      <h3>Não há autores</h3>
-
-    {% endif %}
+  <div class="row">
+      <div class="offset-md-3 col-md-6 cartao">
+        <table class="table">
+          <h3> Autores </h3>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for autor in autores %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td colspan="4">{{autor.nome}}</td>
+                <td><a class="btn btn-outline-dark" href="{% url 'atualizar_autor' autor.id %}">Editar</a></td>
+                <td><a class="btn btn-outline-dark" href="{% url 'deletar_autor' autor.id %}">Deletar</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if autores %}
+          <hr>
+        {% endif %}
+        <a class="col-md-4 offset-md-8 btn btn-outline-dark" href="{% url 'adicionar_autor' %}">Novo Autor</a>
+      </div>
   </div>
-
 {% endblock %}

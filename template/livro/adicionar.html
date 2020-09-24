@@ -5,13 +5,22 @@
 Adicionar Livro
 {% endblock %}
 
-{% block head %}
-{% endblock %}
-
 {% block content %}
-  <form class="" action="{% url 'adicionar_livro' %}" method="post">
-    {% csrf_token %}
-    {{form|crispy}}
-    <button type="submit" name="button">Adicionar</button>
-  </form>
+  <div class="col-md-6 offset-md-3 mt-4 cartao">
+    {% if numero_de_autores != 0 %}
+      <form class="" action="{% url 'adicionar_livro' %}" method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class="btn btn-success" type="submit" name="button">Adicionar</button>
+        <a class="btn btn-danger" href="{% url 'exibir_livros' %}"> Voltar </a>
+
+      </form>
+    {% else %}
+      <div class="alert alert-warning" role="alert">
+        É necessário adicionar um Autor antes de adicionar um Livro.
+      </div>
+      <a class="btn btn-secondary" href="{% url 'adicionar_autor' %}">Adicionar Autor</a>
+      <a class="btn btn-secondary" href="{% url 'exibir_livros' %}"> Voltar </a>
+    {% endif %}
+  </div>
 {% endblock %}

@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path,include
 from livro import urls as url_livro
 from autor import urls as url_autor
-from .views import home
+from livro.views import exibir_livros
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
+    path('', exibir_livros, name='home'),
     path('livros/', include(url_livro)),
     path('autores/', include(url_autor))
 ]

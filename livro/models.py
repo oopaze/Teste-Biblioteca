@@ -18,6 +18,7 @@ class Livro(models.Model):
                                                         message='Quantidade de páginas deve ser maior que 0.',
                                                     )
                                                 ])
+                                                
     preco = models.FloatField("preco",
                                null=False,
                                blank=False,

@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY', default='chave_generica')
 #Deixando default para facilitar os testes
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['teste-geo.herokuapp.com']
+ALLOWED_HOSTS = ['teste-geo.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -71,6 +71,10 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
 ]
 
 WSGI_APPLICATION = 'biblioteca.wsgi.application'

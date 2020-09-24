@@ -1,33 +1,45 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Livros
-{% endblock %}
-
-{% block head %}
+livros
 {% endblock %}
 
 {% block content %}
-  <div class="">
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'adicionar_livro' %}">Adicionar livro</a>
-
-    {% if livros %}
-
-      {% for livro in livros %}
-
-        <div class="">
-          <h3>{{livro.nome}}</h3>
-          <a href="{% url 'atualizar_livro' livro.id %}">Editar</a>
-          <a href="{% url 'deletar_livro' livro.id %}">Deletar</a>
-        </div>
-
-      {% endfor %}
-
-    {% else %}
-
-      <h3>Não há livros</h3>
-
-    {% endif %}
+  <div class="row">
+      <div class="offset-md-1 col-md-10 cartao">
+        <table class="table">
+          <h3> Livros </h3>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" colspan="3">Nome</th>
+              <th scope="col" colspan="3">Autor</th>
+              <th scope="col" colspan="2">Quantidade de Páginas</th>
+              <th scope="col" colspan="2">Preço</th>
+              <th scope="col" colspan="3">Data de Inclusão</th>
+              <th scope="col" colspan="2"></th>
+              <th scope="col" colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for livro in livros %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td colspan="3">{{livro.nome}}</td>
+                <td colspan="3">{{livro.autor}}</td>
+                <td colspan="2">{{livro.quantidade_de_paginas}}</td>
+                <td colspan="2">{{livro.preco}}R$</td>
+                <td colspan="3">{{livro.data_de_inclusao}}</td>
+                <td><a class="btn btn-outline-dark" href="{% url 'atualizar_livro' livro.id %}">Editar</a></td>
+                <td><a class="btn btn-outline-dark" href="{% url 'deletar_livro' livro.id %}">Deletar</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if livros %}
+          <hr>
+        {% endif %}
+        <a class="col-md-2 offset-md-10 btn btn-outline-dark" href="{% url 'adicionar_livro' %}">Novo Livro</a>
+      </div>
   </div>
 {% endblock %}

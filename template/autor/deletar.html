@@ -5,14 +5,13 @@
 Deletar Autor
 {% endblock %}
 
-{% block head %}
-{% endblock %}
-
 {% block content %}
-  <form class="" method="post">
-    {% csrf_token %}
-    <h4> Deseja realmente deletar {{autor.nome}}?</h4>
-    <button type="submit" name="button">Deletar</button>
-    <a href="{% url 'exibir_autor' %}">Cancelar</a>
-  </form>
+  <div class="col-md-4 offset-md-4 mt-4 cartao">
+    <form class="" method="post">
+      {% csrf_token %}
+      <h4> Deseja realmente deletar {{autor.nome}}?</h4>
+      <button class="btn btn-danger" type="submit" name="button">Deletar</button>
+      <a class="btn btn-success" href="{% url 'exibir_autor' %}">Cancelar</a>
+    </form>
+  </div>
 {% endblock %}
