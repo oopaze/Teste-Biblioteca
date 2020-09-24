@@ -24,4 +24,4 @@ urlpatterns = [
     path('', exibir_livros, name='home'),
     path('livros/', include(url_livro)),
     path('autores/', include(url_autor))
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
