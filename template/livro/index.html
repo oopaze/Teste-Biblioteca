@@ -7,34 +7,37 @@ livros
 {% block content %}
   <div class="row">
       <div class="cartao offset-md-1 col-md-10">
-        <table class="table table-striped">
-          <h3> Livros </h3>
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col" colspan="3">Nome</th>
-              <th scope="col" colspan="3">Autor</th>
-              <th scope="col" colspan="2">Páginas</th>
-              <th scope="col" colspan="2">Preço</th>
-              <th scope="col" colspan="3">Inclusão</th>
-              <th scope="col" colspan="4">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for livro in livros %}
+        <div style="overflow-x:auto;">
+
+          <table class="table table-striped">
+            <h3> Livros </h3>
+            <thead>
               <tr>
-                <th scope="row">{{forloop.counter}}</th>
-                <td colspan="3">{{livro.nome}}</td>
-                <td colspan="3">{{livro.autor}}</td>
-                <td colspan="2">{{livro.quantidade_de_paginas}}</td>
-                <td colspan="2">{{livro.preco}}R$</td>
-                <td colspan="3">{{livro.data_de_inclusao}}</td>
-                <td><a class="btn btn-outline-dark" href="{% url 'atualizar_livro' livro.id %}">Editar</a></td>
-                <td><a class="btn btn-outline-dark" href="{% url 'deletar_livro' livro.id %}">Deletar</a></td>
+                <th scope="col">#</th>
+                <th scope="col" colspan="3">Nome</th>
+                <th scope="col" colspan="3">Autor</th>
+                <th scope="col" colspan="2">Páginas</th>
+                <th scope="col" colspan="2">Preço</th>
+                <th scope="col" colspan="3">Inclusão</th>
+                <th scope="col" colspan="4">Ações</th>
               </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {% for livro in livros %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td colspan="3">{{livro.nome}}</td>
+                  <td colspan="3">{{livro.autor}}</td>
+                  <td colspan="2">{{livro.quantidade_de_paginas}}</td>
+                  <td colspan="2">{{livro.preco}}R$</td>
+                  <td colspan="3">{{livro.data_de_inclusao}}</td>
+                  <td><a class="btn btn-outline-dark" href="{% url 'atualizar_livro' livro.id %}">Editar</a></td>
+                  <td><a class="btn btn-outline-dark" href="{% url 'deletar_livro' livro.id %}">Deletar</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
         {% if livros %}
           <hr>
         {% endif %}

@@ -10,26 +10,29 @@ Autores
 {% block content %}
   <div class="row">
       <div class="offset-md-3 col-md-6 cartao">
-        <table class="table">
-          <h3> Autores </h3>
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nome</th>
-              <th scope="col" colspan="4">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for autor in autores %}
+        <div style="overflow-x:auto;">
+          <table class="table">
+            <h3> Autores </h3>
+            <thead>
               <tr>
-                <th scope="row">{{forloop.counter}}</th>
-                <td colspan="4">{{autor.nome}}</td>
-                <td><a class="btn btn-outline-dark" href="{% url 'atualizar_autor' autor.id %}">Editar</a></td>
-                <td><a class="btn btn-outline-dark" href="{% url 'deletar_autor' autor.id %}">Deletar</a></td>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col" colspan="4">Ações</th>
               </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {% for autor in autores %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td colspan="4">{{autor.nome}}</td>
+                  <td><a class="btn btn-outline-dark" href="{% url 'atualizar_autor' autor.id %}">Editar</a></td>
+                  <td><a class="btn btn-outline-dark" href="{% url 'deletar_autor' autor.id %}">Deletar</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
         {% if autores %}
           <hr>
         {% endif %}

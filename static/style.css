@@ -4,12 +4,16 @@ body{
 td a{
   width: 100%;
 }
-table{
-  max-width: 100% !important;
+table {
+  width: 100%;
+  text-align: center;
 }
 .cartao{
   border: 1px solid #d1d1d1;
   border-radius: 5px;
   padding:20px;
   margin-top: 20px;
+}
+.table-overflow-control{
+  overflow-x: auto;
 }
