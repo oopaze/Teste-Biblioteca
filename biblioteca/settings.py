@@ -29,8 +29,6 @@ ALLOWED_HOSTS = ['teste-geo.herokuapp.com', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
-    'autor',
-    'livro',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'autor',
+    'livro',
 ]
 
 #Configurando o crispy forms para usar o bootstrap 4 na estilização
@@ -118,11 +118,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-"static",
-'/var/www/static/',
+    'static',
+    '/var/www/static/',
 ]
 
 STATIC_URL = '/static/'
