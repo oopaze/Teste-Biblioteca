@@ -7,6 +7,7 @@ Adicionar Autor
 
 {% block content %}
   <div class="col-md-6 offset-md-3 mt-4 cartao">
+    <h3> Novo Autor </h3>
     <form class="" action="{% url 'adicionar_autor' %}" method="post">
       {% csrf_token %}
       {{form|crispy}}
