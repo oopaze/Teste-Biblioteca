@@ -71,12 +71,8 @@ TEMPLATES = [
     },
 ]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    '/var/www/static/',
-]
+
 WSGI_APPLICATION = 'biblioteca.wsgi.application'
 
 
@@ -121,5 +117,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_DIRS = [
+"static",
+'/var/www/static/',
+]
 
 STATIC_URL = '/static/'
