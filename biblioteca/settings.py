@@ -19,13 +19,9 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-#Deixando SECRET_KEY com default para facilitar os testes, mas sabendo que isso é uma má prática
-SECRET_KEY = config('SECRET_KEY', default='chave_generica')
+SECRET_KEY = config('SECRET_KEY')
 
-#'9hr9tpu+p@)2-2d%deksrg2+lqj@tq$lu$o1pf5$6w#5w&$7l+'
-
-#Deixando default para facilitar os testes
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['teste-geo.herokuapp.com', 'localhost']
 
