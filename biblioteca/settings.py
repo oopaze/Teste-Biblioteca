@@ -121,8 +121,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    'static',
-    '/var/www/static/',
+    'estaticos',
 ]
 
 STATIC_URL = '/static/'
