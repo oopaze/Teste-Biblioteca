@@ -1,3 +1,5 @@
 *.sqlite3
 *pyc
 *pycache__
+staticfiles
+*tar*
