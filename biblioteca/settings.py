@@ -21,9 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #Chamando a secret_key das variaveis de ambiente
 SECRET_KEY = config('SECRET_KEY')
 #Chamando as DEBUG das variaveis de ambiente
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['teste-geo.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['teste-geo.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
