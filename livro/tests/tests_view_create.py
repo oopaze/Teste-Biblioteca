@@ -13,7 +13,7 @@ class TestAddBook(TestCase):
 
         self.adicionar_url = reverse('adicionar_livro')
 
-    def test_create_book(self):
+    def test_create_book(self): 
         """Create Livro should redirect to /livro/"""
         data = {
             'nome': 'O Livro',
@@ -27,7 +27,7 @@ class TestAddBook(TestCase):
         self.assertEquals(response.status_code, 302)    
 
     def test_create_book_with_invalid_data(self):
-        """Create book without sending an invalid data shouldn't redirect to /livro/"""
+        """Create livro sending an invalid data returns status code 200 on livro/adicionar_html"""
         data = {}
         response = self.client.post(self.adicionar_url, data)
 

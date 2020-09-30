@@ -30,3 +30,12 @@ class TestDeletBook(TestCase):
         response = self.client.post(self.deletar_url)
 
         self.assertEquals(response.status_code, 302)
+
+    def test_delete_unexistent_book(self):
+        """Delete unexistent livro return status code 404(Not foudn)"""
+        deletar_url = reverse('deletar_livro', args=[2])
+
+        response = self.client.post(deletar_url)
+
+        self.assertEquals(response.status_code, 404)
+

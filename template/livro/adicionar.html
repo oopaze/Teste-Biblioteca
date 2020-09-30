@@ -7,7 +7,7 @@ Adicionar Livro
 
 {% block content %}
   <div class="col-md-6 offset-md-3 mt-4 cartao">
-    {% if numero_de_autores != 0 %}
+    {% if autores %}
       <h3> Novo Livro </h3>
       <form class="" action="{% url 'adicionar_livro' %}" method="post">
         {% csrf_token %}

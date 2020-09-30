@@ -10,13 +10,13 @@ def exibir_livros(request):
 def adicionar_livro(request):
     form = LivroForm(request.POST or None)
     
-    numero_de_autores = len(form.fields['autor'].queryset)
+    autores = form.fields['autor'].queryset.exists()
 
     if form.is_valid():
         form.save()
         return redirect('exibir_livros')
 
-    return render(request, 'livro/adicionar.html', {'form':form, 'numero_de_autores':numero_de_autores})
+    return render(request, 'livro/adicionar.html', {'form':form, 'autores':autores})
 
 def atualizar_livro(request, id):
     livro = get_object_or_404(Livro, pk=id)
