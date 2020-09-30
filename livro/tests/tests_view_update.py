@@ -6,7 +6,6 @@ from autor.models import Autor
 
 class TestUpdateBook(TestCase):
     def setUp(self):
-        self.client = Client()
         self.autor = Autor.objects.create(nome='Pedro')
         self.atualizar_url = reverse('atualizar_livro', args=[1])
 

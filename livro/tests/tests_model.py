@@ -6,7 +6,12 @@ from decimal import Decimal
 class TestModelLivro(TestCase):
     def setUp(self):
        self.autor = Autor.objects.create(nome='Pedro')
-       self.livro = Livro.objects.create(nome="O livro", autor=self.autor, quantidade_de_paginas=300, preco=Decimal('39.90'))
+       self.livro = Livro.objects.create(
+                        nome="O livro",
+                        autor=self.autor, 
+                        quantidade_de_paginas=300, 
+                        preco=Decimal('39.90')
+                    )
 
     def test_livro_atributes(self):
         """

@@ -8,7 +8,6 @@ from autor.models import Autor
 
 class TestAddBook(TestCase):
     def setUp(self):
-        self.cliente = Client()
         self.autor = Autor.objects.create(nome='Pedro')
 
         self.adicionar_url = reverse('adicionar_livro')

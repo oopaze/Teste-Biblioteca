@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'autor',
     'livro',
+    'coverage',
 ]
 
 #Configurando o crispy forms para usar o bootstrap 4 na estilização

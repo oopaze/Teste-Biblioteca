@@ -3,7 +3,6 @@ from django.urls import reverse
 
 class TestUpdateAutor(TestCase):
     def setUp(self):
-        self.client = Client()
         self.atualizar_url = reverse('atualizar_autor', args=[1])
 
         self.client.post(reverse('adicionar_autor'), {'nome':'Pedro'})

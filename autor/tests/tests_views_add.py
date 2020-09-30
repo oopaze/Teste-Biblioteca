@@ -1,9 +1,8 @@
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.urls import reverse
 
 class TestAddAutor(TestCase):
     def setUp(self):
-        self.client = Client()
         self.adicionar_url = reverse('adicionar_autor')
 
     def test_create(self):
